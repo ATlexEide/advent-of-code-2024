@@ -1,5 +1,5 @@
 const lineReader = require("readline").createInterface({
-  input: require("fs").createReadStream("./list.txt"),
+  input: require("fs").createReadStream(`${__dirname}/list.txt`),
 });
 
 const leftArrUnsorted = [];
@@ -21,10 +21,7 @@ lineReader.on("close", () => {
   for (let i = 0; i < leftArr.length; i++) {
     differences.push(Math.abs(leftArr[i] - rightArr[i]));
   }
-  const num = differences.reduce(
-    (accumulator, currentValue) => accumulator + currentValue,
-    0
-  );
+  const num = differences.reduce((acc, curr) => acc + curr, 0);
   // Part 2
   const similarities = [];
   for (let i = 0; i < leftArr.length; i++) {
@@ -34,5 +31,6 @@ lineReader.on("close", () => {
     });
     similarities.push(leftArr[i] * counter);
   }
-  console.log(similarities);
+  const num2 = similarities.reduce((acc, curr) => acc + curr, 0);
+  console.log(num2);
 });
