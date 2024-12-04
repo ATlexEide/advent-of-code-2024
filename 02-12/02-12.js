@@ -23,15 +23,18 @@ lineReader.on("line", (line) => {
     if (diff > 3 || diff < 1) safe = false;
     if (ascending && lastNum > num) {
       safe = false;
+      // console.log(line);
       return;
     }
     if (!ascending && lastNum < num) {
       safe = false;
+      // console.log(line);
       return;
     }
     lastNum = num;
   });
   if (safe) {
+    // console.log(line);
     // tempArr.push(line);
     safeCount++;
   }
