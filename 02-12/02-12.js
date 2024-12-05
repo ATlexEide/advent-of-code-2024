@@ -15,23 +15,7 @@ lineReader.on("line", (line) => {
   // console.log(line);
   line.forEach((num) => {
     num = Number(num);
-    if (!safe) return;
-    if (!lastNum) {
-      lastNum = num;
-      return;
-    }
-    let diff = Math.abs(lastNum - num);
-    if (diff > 3 || diff < 1) safe = false;
-    if (ascending && lastNum > num) {
-      safe = false;
-      // console.log(line);
-      return;
-    }
-    if (!ascending && lastNum < num) {
-      safe = false;
-      // console.log(line);
-      return;
-    }
+    errorCheck(num);
     lastNum = num;
   });
   if (safe) {
@@ -43,3 +27,23 @@ lineReader.on("line", (line) => {
 lineReader.on("close", () => {
   console.log(safeCount);
 });
+
+function errorCheck(num, adjusted = false) {
+  if (!safe) return;
+  if (!lastNum) {
+    lastNum = num;
+    return;
+  }
+  let diff = Math.abs(lastNum - num);
+  if (diff > 3 || diff < 1) safe = false;
+  if (ascending && lastNum > num) {
+    safe = false;
+    // console.log(line);
+    return;
+  }
+  if (!ascending && lastNum < num) {
+    safe = false;
+    // console.log(line);
+    return;
+  }
+}
