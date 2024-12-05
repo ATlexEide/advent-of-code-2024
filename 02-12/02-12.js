@@ -6,11 +6,12 @@ let safeCount = 0;
 let lastNum = 0;
 let safe = true;
 let ascending = null;
+
 lineReader.on("line", (line) => {
   lastNum = 0;
   safe = true;
   line = line.split(" ");
-  ascending = line[0] < line[1] ? true : false;
+  ascending = Number(line[0]) < Number(line[1]) ? true : false;
   // console.log(line);
   line.forEach((num) => {
     num = Number(num);
