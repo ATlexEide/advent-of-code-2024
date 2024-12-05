@@ -24,12 +24,12 @@ lineReader.on("close", () => {
   console.log(difference);
   // Part 2
   let similarity = 0;
-  for (let i = 0; i < leftArr.length; i++) {
+  leftArr.forEach((num1) => {
     counter = 0;
-    rightArr.forEach((number) => {
-      if (number === leftArr[i]) counter++;
+    rightArr.forEach((num2) => {
+      if (num2 === num1) counter++;
     });
-    similarity += leftArr[i] * counter;
-  }
+    similarity += num1 * counter;
+  });
   console.log(similarity);
 });
