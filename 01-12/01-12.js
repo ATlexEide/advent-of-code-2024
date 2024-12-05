@@ -23,14 +23,13 @@ lineReader.on("close", () => {
   }
   console.log(difference);
   // Part 2
-  const similarities = [];
+  let similarity = 0;
   for (let i = 0; i < leftArr.length; i++) {
     counter = 0;
     rightArr.forEach((number) => {
       if (number === leftArr[i]) counter++;
     });
-    similarities.push(leftArr[i] * counter);
+    similarity += leftArr[i] * counter;
   }
-  const num2 = similarities.reduce((acc, curr) => acc + curr, 0);
-  console.log(num2);
+  console.log(similarity);
 });
