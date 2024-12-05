@@ -21,6 +21,7 @@ lineReader.on("close", () => {
   for (let i = 0; i < leftArr.length; i++) {
     difference += Math.abs(leftArr[i] - rightArr[i]);
   }
+  console.log(difference);
   // Part 2
   const similarities = [];
   for (let i = 0; i < leftArr.length; i++) {
