@@ -17,11 +17,10 @@ lineReader.on("close", () => {
   const leftArr = leftArrUnsorted.toSorted();
   const rightArr = rightArrUnsorted.toSorted();
   // Part 1
-  const differences = [];
+  let difference = 0;
   for (let i = 0; i < leftArr.length; i++) {
-    differences.push(Math.abs(leftArr[i] - rightArr[i]));
+    difference += Math.abs(leftArr[i] - rightArr[i]);
   }
-  const num = differences.reduce((acc, curr) => acc + curr, 0);
   // Part 2
   const similarities = [];
   for (let i = 0; i < leftArr.length; i++) {
